@@ -49,3 +49,15 @@ class AuthClient:
         
         self.api_client.log_operation_result("Workspace login", True, workspace_id=workspace_id)
         return workspace_auth_data
+
+    def logout(self, cookie: str = None) -> Dict[str, Any]:
+        endpoint = self.api_client.config_manager.get("API", "logout_endpoint")
+        result = self.api_client.make_request_with_response("POST", endpoint, cookie=cookie)
+
+        logout_data = {
+            "response_data": result["response_data"],
+            "status_code": result["status_code"]
+        }
+
+        self.api_client.log_operation_result("Logout", True)
+        return logout_data

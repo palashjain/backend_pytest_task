@@ -69,6 +69,29 @@ def test_logging(request):
     LoggerUtils.log_test_end(test_name, "completed")
 
 
+@pytest.fixture(autouse=True)
+def logout_after_test(api_client: APIClient, request):
+    yield
+    
+    logger = LoggerUtils.get_logger(__name__)
+    try:
+        auth_client = AuthClient(api_client)
+        
+        cookie = None
+        try:
+            if hasattr(request, 'fixturenames') and 'authenticated_request' in request.fixturenames:
+                authenticated_data = request.getfixturevalue('authenticated_request')
+                cookie = authenticated_data.get('cookie')
+                logger.info("Using cookie from authenticated_request fixture for logout")
+        except Exception:
+            logger.info("Could not get cookie from fixture, trying session cookie")
+        
+        auth_client.logout(cookie)
+        logger.info("✅ Logout completed successfully after test")
+    except Exception as e:
+        logger.warning(f"⚠️  Logout failed after test: {str(e)}")
+
+
 def pytest_configure(config):
     config.addinivalue_line(
         "markers", "smoke: mark test as smoke test"
@@ -113,7 +136,7 @@ def pytest_sessionstart(session):
     logger.info(f"Response log file: {LoggerUtils._session_response_log_file}")
 
 
-def pytest_sessionfinish(session,exitstatus):
+def pytest_sessionfinish(session, exitstatus):
     logger = LoggerUtils.get_logger(__name__)
     logger.info(f"=== Test Session Finished with exit status: {exitstatus} ===")
     logger.info("ℹ️  Allure results preserved in 'allure-results' folder")
