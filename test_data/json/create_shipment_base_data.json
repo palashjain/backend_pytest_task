@@ -1,0 +1,192 @@
+{
+  "data": [
+      {
+          "courier_identifier": "self",
+          "dispatch_strategy": "manual",
+          "description": "babua",
+          "items": [
+              {
+                  "name": "T-Shirt1",
+                  "description": "item_1_description",
+                  "category": "inflammable",
+                  "sku": "SKU123",
+                  "ean": "EAN123",
+                  "brand": "power brand",
+                  "quantity": 100,
+                  "price_effective": 200,
+                  "mrp": 500
+              },
+              {
+                  "name": "T-Shirt2",
+                  "description": "item_2_description",
+                  "category": "fragile",
+                  "sku": "SKU122",
+                  "ean": "EAN122",
+                  "brand": "power brand",
+                  "quantity": 100,
+                  "price_effective": 200,
+                  "mrp": 500
+              }
+          ],
+          "pickup_location": {
+              "name": "Wework Vijay diamond",
+              "address_line_1": "No. A3&B2, B Cross Road Marol Industrial Area, ",
+              "address_line_2": "MIDC,Andheri (East)",
+              "additional_details": "Drop at reception",
+              "hub_name": "hera",
+              "pincode": 400001,
+              "area": "Marol",
+              "city": "Mumbai",
+              "latitude": 19.11731708313244,
+              "longitude": 72.86912203824595,
+              "district": "Mumbai suburban",
+              "state": "Maharashtra",
+              "country": "INDIA",
+              "location_type": "office",
+              "contact_details": {
+                  "contact_name": "Peter Parker",
+                  "contact_phone": "9082618362",
+                  "contact_email": "garvitjain@gofynd.com"
+              },
+              "landmark": "pick landmark",
+              "instructions": "pick from store"
+          },
+          "drop_location": {
+              "name": "Shop no 4",
+              "address_line_1": "Lal Bahadur Shastri Marg",
+              "address_line_2": "opposite Fauziya Hospital, Friends Colony",
+              "additional_details": "store pick up",
+              "latitude": 18.93068,
+              "longitude": 72.83209,
+              "geohash": "ashjdvasjhd",
+              "pincode": 400003,
+              "area": "Kurla West,Kurla",
+              "city": "Mumbai",
+              "district": "Sri Potti Sriramulu Nellore",
+              "state": "Maharashtra",
+              "country": "India",
+              "location_type": "office",
+              "contact_details": {
+                  "contact_name": "Peter bhopalika",
+                  "contact_phone": "7738108361",
+                  "contact_email": "cd_cmvalue@gmail.dajk"
+              },
+              "landmark": "drop landmark",
+              "instructions": "drop at home"
+          },
+          "invoice": {
+              "seller_gstin": "",
+              "billed_to": "Baburao Apte",
+              "invoice_number": 27612,
+              "issue_date": "2023-04-03",
+              "description": "A blue colour T-Shirt",
+              "quantity": 1,
+              "amount": 410,
+              "gst": {}
+          },
+          "payment_method": "cod",
+          "length": 10,
+          "width": 5000.00,
+          "height": 9,
+          "weight": 100,
+          "e_waybill": null,
+          "amount_to_collect": 1001,
+          "journey_type": "forward",
+          "created_by": "Garvit Jain",
+          "updated_by": "Garvit Jain"
+      },
+      {
+          "courier_identifier": "self",
+          "dispatch_strategy": "manual",
+          "description": "rule_test",
+          "items": [
+              {
+                  "name": "T-Shirt1",
+                  "description": "item_1_description",
+                  "category": "inflammable",
+                  "sku": "SKU123",
+                  "ean": "EAN123",
+                  "brand": "power brand",
+                  "quantity": 100,
+                  "price_effective": 200,
+                  "mrp": 500
+              },
+              {
+                  "name": "T-Shirt2",
+                  "description": "item_2_description",
+                  "category": "fragile",
+                  "sku": "SKU122",
+                  "ean": "EAN122",
+                  "brand": "power brand",
+                  "quantity": 100,
+                  "price_effective": 200,
+                  "mrp": 500
+              }
+          ],
+          "pickup_location": {
+              "name": "Wework Vijay diamond 1",
+              "address_line_1": "No. A3&B2, B Cross Road Marol Industrial Area, ",
+              "address_line_2": "MIDC,Andheri (East)",
+              "additional_details": "Drop at reception",
+              "pincode": 400001,
+              "hub_name": "hera",
+              "area": "Marol",
+              "city": "Mumbai",
+              "district": "Mumbai suburban",
+              "state": "Maharashtra",
+              "country": "INDIA",
+              "location_type": "office",
+              "contact_details": {
+                  "contact_name": "peter",
+                  "contact_phone": "9082618362",
+                  "contact_email": "garvitjain@gofynd.com"
+              },
+              "landmark": "pick landmark",
+              "instructions": "pick from store"
+          },
+          "drop_location": {
+              "name": "Shop no 5",
+              "address_line_1": "Lal Bahadur Shastri Marg",
+              "address_line_2": "opposite Fauziya Hospital, Friends Colony",
+              "additional_details": "store pick up",
+              "geohash": "ashjdvasjhd",
+              "pincode": 400003,
+              "area": "Kurla West,Kurla",
+              "city": "Mumbai",
+              "district": "Sri Potti Sriramulu Nellore",
+              "state": "Maharashtra",
+              "country": "India",
+              "location_type": "office",
+              "complete_after": "2024-02-05T09:00:00+05:30",
+              "complete_before": "2024-02-05T09:00:00+05:30",
+              "contact_details": {
+                  "contact_name": "Bhopalika",
+                  "contact_phone": "7738108361",
+                  "contact_email": "cd_cmvalue@gmail.dajk"
+              },
+              "landmark": "drop landmark",
+              "instructions": "drop at home"
+          },
+          "invoice": {
+              "seller_gstin": "",
+              "billed_to": "Baburao Apte",
+              "invoice_number": 27612,
+              "issue_date": "2023-04-03",
+              "description": "A blue colour T-Shirt",
+              "quantity": 1,
+              "amount": 410,
+              "gst": {}
+          },
+          "payment_method": "cod",
+          "length": 10,
+          "width": 5000.00,
+          "height": 9,
+          "weight": 100,
+          "e_waybill": null,
+          "amount_to_collect": 1001,
+          "journey_type": "forward",
+          "created_by": "Garvit Jain",
+          "updated_by": "Garvit Jain"
+      }
+  ]
+}

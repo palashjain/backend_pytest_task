@@ -1,0 +1,142 @@
+validation_type,field_path,missing_field/invalid_value,expected_error,description,test_category
+enum_validation,journey_type,invalid_journey_type,schema_validation_failed,Invalid journey_type enum value,enum
+enum_validation,dispatch_strategy,invalid_strategy,schema_validation_failed,Invalid dispatch_strategy enum value,enum
+enum_validation,payment_method,invalid_payment_method,schema_validation_failed,Invalid payment_method enum value,enum
+enum_validation,items.0.category,invalid_category,schema_validation_failed,Invalid item category enum value,enum
+enum_validation,packages.0.items.0.category,invalid_category,schema_validation_failed,Invalid package item category enum value,enum
+enum_validation,pickup_location.location_type,invalid_location_type,schema_validation_failed,Invalid pickup location_type enum value,enum
+enum_validation,drop_location.location_type,invalid_location_type,schema_validation_failed,Invalid drop location_type enum value,enum
+data_type_validation,packages.0.id,invalid_id_type,schema_validation_failed,Invalid package id data type,data_type
+data_type_validation,packages.0.length,invalid_length_type,schema_validation_failed,Invalid package length data type,data_type
+data_type_validation,packages.0.width,invalid_width_type,schema_validation_failed,Invalid package width data type,data_type
+data_type_validation,packages.0.height,invalid_height_type,schema_validation_failed,Invalid package height data type,data_type
+data_type_validation,packages.0.weight,invalid_weight_type,schema_validation_failed,Invalid package weight data type,data_type
+data_type_validation,items.0.id,invalid_id_type,schema_validation_failed,Invalid item id data type,data_type
+data_type_validation,items.0.quantity,invalid_quantity_type,schema_validation_failed,Invalid item quantity data type,data_type
+data_type_validation,items.0.price_effective,invalid_price_type,schema_validation_failed,Invalid item price_effective data type,data_type
+data_type_validation,items.0.mrp,invalid_mrp_type,schema_validation_failed,Invalid item mrp data type,data_type
+data_type_validation,packages.0.items.0.id,invalid_id_type,schema_validation_failed,Invalid package item id data type,data_type
+data_type_validation,packages.0.items.0.quantity,invalid_quantity_type,schema_validation_failed,Invalid package item quantity data type,data_type
+data_type_validation,packages.0.items.0.price_effective,invalid_price_type,schema_validation_failed,Invalid package item price_effective data type,data_type
+data_type_validation,packages.0.items.0.mrp,invalid_mrp_type,schema_validation_failed,Invalid package item mrp data type,data_type
+data_type_validation,pickup_location.latitude,invalid_latitude_type,schema_validation_failed,Invalid pickup latitude data type,data_type
+data_type_validation,pickup_location.longitude,invalid_longitude_type,schema_validation_failed,Invalid pickup longitude data type,data_type
+data_type_validation,pickup_location.slot_id,invalid_slot_id_type,schema_validation_failed,Invalid pickup slot_id data type,data_type
+data_type_validation,drop_location.latitude,invalid_latitude_type,schema_validation_failed,Invalid drop latitude data type,data_type
+data_type_validation,drop_location.longitude,invalid_longitude_type,schema_validation_failed,Invalid drop longitude data type,data_type
+data_type_validation,drop_location.slot_id,invalid_slot_id_type,schema_validation_failed,Invalid drop slot_id data type,data_type
+data_type_validation,pickup_location.otp_required,invalid_otp_type,schema_validation_failed,Invalid pickup otp_required data type,data_type
+data_type_validation,pickup_location.image_required,invalid_image_type,schema_validation_failed,Invalid pickup image_required data type,data_type
+data_type_validation,pickup_location.signature_required,invalid_signature_type,schema_validation_failed,Invalid pickup signature_required data type,data_type
+data_type_validation,pickup_location.notes_required,invalid_notes_type,schema_validation_failed,Invalid pickup notes_required data type,data_type
+data_type_validation,pickup_location.form_required,invalid_form_type,schema_validation_failed,Invalid pickup form_required data type,data_type
+data_type_validation,drop_location.otp_required,invalid_otp_type,schema_validation_failed,Invalid drop otp_required data type,data_type
+data_type_validation,drop_location.image_required,invalid_image_type,schema_validation_failed,Invalid drop image_required data type,data_type
+data_type_validation,drop_location.signature_required,invalid_signature_type,schema_validation_failed,Invalid drop signature_required data type,data_type
+data_type_validation,drop_location.notes_required,invalid_notes_type,schema_validation_failed,Invalid drop notes_required data type,data_type
+data_type_validation,drop_location.form_required,invalid_form_type,schema_validation_failed,Invalid drop form_required data type,data_type
+data_type_validation,invoice.quantity,invalid_quantity_type,schema_validation_failed,Invalid invoice quantity data type,data_type
+data_type_validation,invoice.amount,invalid_amount_type,schema_validation_failed,Invalid invoice amount data type,data_type
+data_type_validation,items.0.gst.cgst,invalid_cgst_type,schema_validation_failed,Invalid item cgst data type,data_type
+data_type_validation,items.0.gst.sgst,invalid_sgst_type,schema_validation_failed,Invalid item sgst data type,data_type
+data_type_validation,items.0.gst.igst,invalid_igst_type,schema_validation_failed,Invalid item igst data type,data_type
+data_type_validation,packages.0.items.0.gst.cgst,invalid_cgst_type,schema_validation_failed,Invalid package item cgst data type,data_type
+data_type_validation,packages.0.items.0.gst.sgst,invalid_sgst_type,schema_validation_failed,Invalid package item sgst data type,data_type
+data_type_validation,packages.0.items.0.gst.igst,invalid_igst_type,schema_validation_failed,Invalid package item igst data type,data_type
+data_type_validation,invoice.gst.cgst,invalid_cgst_type,schema_validation_failed,Invalid invoice cgst data type,data_type
+data_type_validation,invoice.gst.sgst,invalid_sgst_type,schema_validation_failed,Invalid invoice sgst data type,data_type
+data_type_validation,invoice.gst.igst,invalid_igst_type,schema_validation_failed,Invalid invoice igst data type,data_type
+data_type_validation,length,invalid_length_type,schema_validation_failed,Invalid shipment length data type,data_type
+data_type_validation,width,invalid_width_type,schema_validation_failed,Invalid shipment width data type,data_type
+data_type_validation,height,invalid_height_type,schema_validation_failed,Invalid shipment height data type,data_type
+data_type_validation,weight,invalid_weight_type,schema_validation_failed,Invalid shipment weight data type,data_type
+data_type_validation,installation_time,invalid_installation_time_type,schema_validation_failed,Invalid installation_time data type,data_type
+data_type_validation,amount_to_collect,invalid_amount_to_collect_type,schema_validation_failed,Invalid amount_to_collect data type,data_type
+data_type_validation,mps,invalid_mps_type,schema_validation_failed,Invalid mps data type,data_type
+data_type_validation,pdsr_allowed,invalid_pdsr_allowed_type,schema_validation_failed,Invalid pdsr_allowed data type,data_type
+format_validation,pickup_location.complete_after,invalid_datetime_format,schema_validation_failed,Invalid pickup complete_after datetime format,format
+format_validation,pickup_location.complete_before,invalid_datetime_format,schema_validation_failed,Invalid pickup complete_before datetime format,format
+format_validation,drop_location.complete_after,invalid_datetime_format,schema_validation_failed,Invalid drop complete_after datetime format,format
+format_validation,drop_location.complete_before,invalid_datetime_format,schema_validation_failed,Invalid drop complete_before datetime format,format
+format_validation,items.0.image_urls.0,invalid_url_format,schema_validation_failed,Invalid item image_urls format,format
+format_validation,packages.0.items.0.image_urls.0,invalid_url_format,schema_validation_failed,Invalid package item image_urls format,format
+format_validation,invoice.issue_date,invalid_date_format,schema_validation_failed,Invalid invoice issue_date format,format
+data_type_validation,pickup_location.pincode,invalid_pincode_type,shipment_validation_failed,Invalid pickup pincode data type,data_type
+data_type_validation,drop_location.pincode,invalid_pincode_type,shipment_validation_failed,Invalid drop pincode data type,data_type
+boundary_validation,pickup_location.latitude,91,schema_validation_failed,Pickup latitude above maximum,boundary
+boundary_validation,pickup_location.latitude,-91,schema_validation_failed,Pickup latitude below minimum,boundary
+boundary_validation,pickup_location.longitude,181,schema_validation_failed,Pickup longitude above maximum,boundary
+boundary_validation,pickup_location.longitude,-181,schema_validation_failed,Pickup longitude below minimum,boundary
+boundary_validation,drop_location.latitude,91,schema_validation_failed,Drop latitude above maximum,boundary
+boundary_validation,drop_location.latitude,-91,schema_validation_failed,Drop latitude below minimum,boundary
+boundary_validation,drop_location.longitude,181,schema_validation_failed,Drop longitude above maximum,boundary
+boundary_validation,drop_location.longitude,-181,schema_validation_failed,Drop longitude below minimum,boundary
+boundary_validation,packages.0.length,-0.1,schema_validation_failed,Package length below minimum,boundary
+boundary_validation,packages.0.width,-0.1,schema_validation_failed,Package width below minimum,boundary
+boundary_validation,packages.0.height,-0.1,schema_validation_failed,Package height below minimum,boundary
+boundary_validation,packages.0.weight,-0.1,schema_validation_failed,Package weight below minimum,boundary
+boundary_validation,items.0.quantity,-1,schema_validation_failed,Item quantity below minimum,boundary
+boundary_validation,items.0.quantity,2147483648,schema_validation_failed,Item quantity above maximum,boundary
+boundary_validation,items.0.price_effective,-0.1,schema_validation_failed,Item price_effective below minimum,boundary
+boundary_validation,items.0.mrp,-0.1,schema_validation_failed,Item mrp below minimum,boundary
+boundary_validation,packages.0.items.0.quantity,-1,schema_validation_failed,Package item quantity below minimum,boundary
+boundary_validation,packages.0.items.0.quantity,2147483648,schema_validation_failed,Package item quantity above maximum,boundary
+boundary_validation,packages.0.items.0.price_effective,-0.1,schema_validation_failed,Package item price_effective below minimum,boundary
+boundary_validation,packages.0.items.0.mrp,-0.1,schema_validation_failed,Package item mrp below minimum,boundary
+boundary_validation,invoice.quantity,-1,schema_validation_failed,Invoice quantity below minimum,boundary
+boundary_validation,invoice.quantity,2147483648,schema_validation_failed,Invoice quantity above maximum,boundary
+boundary_validation,invoice.amount,-0.1,schema_validation_failed,Invoice amount below minimum,boundary
+boundary_validation,items.0.gst.cgst,-0.1,schema_validation_failed,Item cgst below minimum,boundary
+boundary_validation,items.0.gst.sgst,-0.1,schema_validation_failed,Item sgst below minimum,boundary
+boundary_validation,items.0.gst.igst,-0.1,schema_validation_failed,Item igst below minimum,boundary
+boundary_validation,packages.0.items.0.gst.cgst,-0.1,schema_validation_failed,Package item cgst below minimum,boundary
+boundary_validation,packages.0.items.0.gst.sgst,-0.1,schema_validation_failed,Package item sgst below minimum,boundary
+boundary_validation,packages.0.items.0.gst.igst,-0.1,schema_validation_failed,Package item igst below minimum,boundary
+boundary_validation,invoice.gst.cgst,-0.1,schema_validation_failed,Invoice cgst below minimum,boundary
+boundary_validation,invoice.gst.sgst,-0.1,schema_validation_failed,Invoice sgst below minimum,boundary
+boundary_validation,invoice.gst.igst,-0.1,schema_validation_failed,Invoice igst below minimum,boundary
+boundary_validation,length,-0.1,schema_validation_failed,Shipment length below minimum,boundary
+boundary_validation,width,-0.1,schema_validation_failed,Shipment width below minimum,boundary
+boundary_validation,height,-0.1,schema_validation_failed,Shipment height below minimum,boundary
+boundary_validation,weight,-0.1,schema_validation_failed,Shipment weight below minimum,boundary
+boundary_validation,installation_time,-0.1,schema_validation_failed,Installation time below minimum,boundary
+boundary_validation,amount_to_collect,-0.1,schema_validation_failed,Amount to collect below minimum,boundary
+boundary_validation,packages.0.id,-1,schema_validation_failed,Package id below minimum,boundary
+string_length_validation,items.0.hsn_code,1234567,schema_validation_failed,Item hsn_code exceeds maximum length,string_length
+string_length_validation,packages.0.items.0.hsn_code,1234567,schema_validation_failed,Package item hsn_code exceeds maximum length,string_length
+string_length_validation,courier_identifier,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,shipment_validation_failed,Courier identifier exceeds maximum length,string_length
+string_length_validation,identifier,,shipment_validation_failed,Identifier below minimum length,string_length
+missing_field_validation,data,,schema_validation_failed,Missing root level data array,missing_field
+missing_field_validation,pickup_location,,schema_validation_failed,Missing pickup_location in shipment,missing_field
+missing_field_validation,drop_location,,schema_validation_failed,Missing drop_location in shipment,missing_field
+missing_field_validation,payment_method,,schema_validation_failed,Missing payment_method in shipment,missing_field
+missing_field_validation,pickup_location.otp_required,,schema_validation_failed,Missing pickup otp_required,missing_field
+missing_field_validation,pickup_location.image_required,,schema_validation_failed,Missing pickup image_required,missing_field
+missing_field_validation,pickup_location.signature_required,,schema_validation_failed,Missing pickup signature_required,missing_field
+missing_field_validation,pickup_location.notes_required,,schema_validation_failed,Missing pickup notes_required,missing_field
+missing_field_validation,pickup_location.form_required,,schema_validation_failed,Missing pickup form_required,missing_field
+missing_field_validation,drop_location.otp_required,,schema_validation_failed,Missing drop otp_required,missing_field
+missing_field_validation,drop_location.image_required,,schema_validation_failed,Missing drop image_required,missing_field
+missing_field_validation,drop_location.signature_required,,schema_validation_failed,Missing drop signature_required,missing_field
+missing_field_validation,drop_location.notes_required,,schema_validation_failed,Missing drop notes_required,missing_field
+missing_field_validation,drop_location.form_required,,schema_validation_failed,Missing drop form_required,missing_field
+array_validation,data,,schema_validation_failed,Empty data array,array
+array_validation,packages,,schema_validation_failed,Empty packages array,array
+array_validation,items,,schema_validation_failed,Empty items array,array
+array_validation,packages.0.items,,schema_validation_failed,Empty package items array,array
+boundary_positive,packages.0.length,0.1,,Minimum valid length,boundary
+boundary_positive,packages.0.width,0.1,,Minimum valid width,boundary
+boundary_positive,packages.0.height,0.1,,Minimum valid height,boundary
+boundary_positive,packages.0.weight,0.1,,Minimum valid weight,boundary
+boundary_positive,amount_to_collect,0,,Minimum valid amount,boundary
+boundary_positive,items.0.price_effective,0,,Minimum valid item price,boundary
+boundary_positive,items.0.quantity,0,,Minimum valid item quantity,boundary
+boundary_positive,packages.0.items.0.quantity,0,,Minimum valid package item quantity,boundary
+boundary_positive,invoice.quantity,0,,Minimum valid invoice quantity,boundary
+boundary_positive,invoice.amount,0,,Minimum valid invoice amount,boundary
+boundary_positive,packages.0.id,0,,Minimum valid package id,boundary
+boundary_positive,length,0,,Minimum valid shipment length,boundary
+boundary_positive,width,0,,Minimum valid shipment width,boundary
+boundary_positive,height,0,,Minimum valid shipment height,boundary
+boundary_positive,weight,0,,Minimum valid shipment weight,boundary
+boundary_positive,installation_time,0,,Minimum valid installation time,boundary

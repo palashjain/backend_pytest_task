@@ -1,0 +1,604 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "pickup_location",
+          "drop_location",
+          "payment_method"
+        ],
+        "properties": {
+          "reference_id": {
+            "type": "string"
+          },
+          "journey_type": {
+            "type": "string",
+            "enum": ["forward", "reverse", "work"],
+            "default": "forward"
+          },
+          "packages": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "package_reference": {
+                  "type": "string"
+                },
+                "length": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "width": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "height": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "description": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": [],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "category": {
+                        "type": "string",
+                        "enum": ["fragile", "inflammable"]
+                      },
+                      "sku": {
+                        "type": "string"
+                      },
+                      "ean": {
+                        "type": "string"
+                      },
+                      "brand": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647,
+                        "default": 1
+                      },
+                      "price_effective": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "mrp": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "currency_code": {
+                        "type": "string"
+                      },
+                      "hsn_code": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 6
+                      },
+                      "gst": {
+                        "type": "object",
+                        "required": [],
+                        "properties": {
+                          "cgst": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "sgst": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "igst": {
+                            "type": "number",
+                            "minimum": 0
+                          }
+                        }
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "uom": {
+                        "type": "string"
+                      },
+                      "image_urls": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string",
+                  "enum": ["fragile", "inflammable"]
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "ean": {
+                  "type": "string"
+                },
+                "brand": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647,
+                  "default": 1
+                },
+                "price_effective": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "mrp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "currency_code": {
+                  "type": "string"
+                },
+                "hsn_code": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 6
+                },
+                "gst": {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "cgst": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "sgst": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "igst": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "color": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "uom": {
+                  "type": "string"
+                },
+                "image_urls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          },
+          "mps": {
+            "type": "boolean"
+          },
+          "pickup_location": {
+            "type": "object",
+            "required": [
+              "otp_required",
+              "image_required",
+              "signature_required",
+              "notes_required",
+              "form_required"
+            ],
+            "properties": {
+              "complete_after": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "complete_before": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "instructions": {
+                "type": "string"
+              },
+              "otp_required": {
+                "type": "boolean"
+              },
+              "image_required": {
+                "type": "boolean"
+              },
+              "signature_required": {
+                "type": "boolean"
+              },
+              "notes_required": {
+                "type": "boolean"
+              },
+              "form_required": {
+                "type": "boolean"
+              },
+              "location_hash": {
+                "type": "string"
+              },
+              "location_name": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              },
+              "longitude": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "name": {
+                "type": "string"
+              },
+              "address_line_1": {
+                "type": "string"
+              },
+              "address_line_2": {
+                "type": "string"
+              },
+              "additional_details": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "pincode": {
+                "type": "string"
+              },
+              "district": {
+                "type": "string"
+              },
+              "area": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "landmark": {
+                "type": "string"
+              },
+              "location_type": {
+                "type": "string",
+                "enum": ["home","hub","office", "warehouse", "store", "other", "work"]
+              },
+              "contact_details": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                  "contact_name": {
+                    "type": "string"
+                  },
+                  "isd_code": {
+                    "type": "string",
+                    "default": "91"
+                  },
+                  "contact_phone": {
+                    "type": "string"
+                  },
+                  "contact_email": {
+                    "type": "string"
+                  }
+                }
+              },
+              "slot_id": {
+                "type": "integer"
+              },
+              "serviceability_code": {
+                "type": "string"
+              },
+              "hub_name": {
+                "type": "string"
+              }
+            }
+          },
+          "drop_location": {
+            "type": "object",
+            "required": [
+              "otp_required",
+              "image_required",
+              "signature_required",
+              "notes_required",
+              "form_required"
+            ],
+            "properties": {
+              "complete_after": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "complete_before": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "instructions": {
+                "type": "string"
+              },
+              "otp_required": {
+                "type": "boolean"
+              },
+              "image_required": {
+                "type": "boolean"
+              },
+              "signature_required": {
+                "type": "boolean"
+              },
+              "notes_required": {
+                "type": "boolean"
+              },
+              "form_required": {
+                "type": "boolean"
+              },
+              "location_hash": {
+                "type": "string"
+              },
+              "location_name": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              },
+              "longitude": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "name": {
+                "type": "string"
+              },
+              "address_line_1": {
+                "type": "string"
+              },
+              "address_line_2": {
+                "type": "string"
+              },
+              "additional_details": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "pincode": {
+                "type": "string"
+              },
+              "district": {
+                "type": "string"
+              },
+              "area": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "landmark": {
+                "type": "string"
+              },
+              "location_type": {
+                "type": "string",
+                "enum": ["home","hub","office", "warehouse", "store", "other", "work"]
+              },
+              "contact_details": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                  "contact_name": {
+                    "type": "string"
+                  },
+                  "isd_code": {
+                    "type": "string",
+                    "default": "91"
+                  },
+                  "contact_phone": {
+                    "type": "string"
+                  },
+                  "contact_email": {
+                    "type": "string"
+                  }
+                }
+              },
+              "slot_id": {
+                "type": "integer"
+              },
+              "serviceability_code": {
+                "type": "string"
+              }
+            }
+          },
+          "courier_identifier": {
+            "type": "string",
+            "maxLength": 50,
+            "default": "self"
+          },
+          "invoice": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "seller_gstin": {
+                "type": "string"
+              },
+              "billed_to": {
+                "type": "string"
+              },
+              "invoice_number": {
+                "type": "string"
+              },
+              "issue_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "description": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "gst": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                  "cgst": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "sgst": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "igst": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                }
+              },
+              "currency_code": {
+                "type": "string"
+              }
+            }
+          },
+          "payment_method": {
+            "type": "string",
+            "enum": ["cod", "prepaid"]
+          },
+          "length": {
+            "type": "number",
+            "minimum": 0
+          },
+          "width": {
+            "type": "number",
+            "minimum": 0
+          },
+          "height": {
+            "type": "number",
+            "minimum": 0
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0
+          },
+          "installation_time": {
+            "type": "number",
+            "minimum": 0
+          },
+          "e_waybill": {
+            "type": "string"
+          },
+          "amount_to_collect": {
+            "type": "number",
+            "minimum": 0
+          },
+          "description": {
+            "type": "string"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "dispatch_strategy": {
+            "type": "string",
+            "enum": ["auto", "manual"]
+          },
+          "currency_code": {
+            "type": "string"
+          },
+          "delivery_format": {
+            "type": "string"
+          },
+          "pdsr_allowed": {
+            "type": "boolean"
+          },
+          "carrier_awb": {
+            "type": "string"
+          },
+          "order_id": {
+            "type": "string"
+          },
+          "works": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

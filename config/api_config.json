@@ -1,0 +1,60 @@
+{
+  "apis": {
+    "create_shipment": {
+      "name": "create_shipment",
+      "display_name": "Create Shipment API",
+      "base_data_file": "create_shipment_base_data.json",
+      "schema_file": "create_shipment_schema.json",
+      "endpoints": {
+        "create": "/api/shipment/create"
+      },
+      "data_generation": {
+        "enums": {
+          "dispatch_strategy": ["auto", "manual"],
+          "payment_method": ["cod", "prepaid"],
+          "journey_type": ["forward", "reverse", "work"],
+          "item_category": ["fragile", "inflammable"],
+          "location_type": ["home", "hub", "office", "warehouse", "store", "other", "work"]
+        },
+        "ranges": {
+          "length": {"min": 0},
+          "width": {"min": 0},
+          "height": {"min": 0},
+          "weight": {"min": 0},
+          "amount_to_collect": {"min": 0},
+          "item_quantity": {"min": 0, "max": 2147483647},
+          "item_price": {"min": 0},
+          "invoice_quantity": {"min": 0, "max": 2147483647},
+          "package_id": {"min": 0},
+          "latitude": {"min": -90, "max": 90},
+          "longitude": {"min": -180, "max": 180},
+          "hsn_code_length": {"min": 1, "max": 6},
+          "courier_identifier_length": {"max": 50}
+        },
+        "patterns": {
+          "phone": "^[0-9]{10}$",
+          "email": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+          "date_time": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z?$",
+          "date": "^\\d{4}-\\d{2}-\\d{2}$",
+          "uri": "^https?://.*"
+        },
+        "required_fields": {
+          "root": ["data"],
+          "shipment": ["pickup_location", "drop_location", "payment_method"],
+          "pickup_location": ["otp_required", "image_required", "signature_required", "notes_required", "form_required"],
+          "drop_location": ["otp_required", "image_required", "signature_required", "notes_required", "form_required"],
+          "packages": ["minItems: 1"],
+          "package_items": ["minItems: 1"],
+          "items": ["minItems: 1"]
+        },
+        "defaults": {
+          "journey_type": "forward",
+          "courier_identifier": "self",
+          "isd_code": "91",
+          "item_quantity": 1
+        }
+      }
+    }
+  },
+  "default_api": "create_shipment"
+}
