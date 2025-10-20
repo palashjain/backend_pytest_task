@@ -4,7 +4,6 @@ from datetime import datetime
 from utils.base_utils import BaseClassUtils
 from schemas.schema_loader import SchemaLoader
 from config.api_config_manager import APIConfigManager
-from utils.common_utils import CommonUtils
 
 
 class GenericContractValidator(BaseClassUtils):
@@ -87,9 +86,6 @@ class GenericContractValidator(BaseClassUtils):
         
         return summary
 
-    @classmethod
-    def _get_nested_value(cls, data: Dict[str, Any], path: str) -> Any:
-        return CommonUtils.get_nested_value(data, path)
 
     @classmethod
     def validate_shipment_request(cls, request_data: Dict[str, Any]) -> Dict[str, Any]:

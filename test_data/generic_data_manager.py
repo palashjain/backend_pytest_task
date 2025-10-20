@@ -35,7 +35,6 @@ class GenericDataManager:
             base_data_file = self._api_config_manager.get_base_data_file(api_name)
             base_data = self.load_test_data(base_data_file)
             
-            # Enhance base data with missing required fields
             if api_name == "create_shipment":
                 base_data = self._enhance_shipment_base_data(base_data)
             

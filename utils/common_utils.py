@@ -16,15 +16,6 @@ class CommonUtils(BaseClassUtils):
     def deep_copy_dict(data: Dict[str, Any]) -> Dict[str, Any]:
         return json.loads(json.dumps(data))
 
-    @staticmethod
-    def merge_dicts(base_dict: Dict[str, Any], override_dict: Dict[str, Any]) -> Dict[str, Any]:
-        merged = base_dict.copy()
-        for key, value in override_dict.items():
-            if key in merged and isinstance(merged[key], dict) and isinstance(value, dict):
-                merged[key] = CommonUtils.merge_dicts(merged[key], value)
-            else:
-                merged[key] = value
-        return merged
 
     @staticmethod
     def get_nested_value(data: Dict[str, Any], path: str, default: Any = None) -> Any:

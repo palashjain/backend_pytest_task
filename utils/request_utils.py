@@ -63,17 +63,8 @@ class RequestUtils(BaseClassUtils):
                     return json.dumps(data, default=str)
                 else:
                     return str(data)
-            elif content_type == "application/x-www-form-urlencoded":
-                if isinstance(data, dict):
-                    return data
-                else:
-                    raise ValueError("Form data must be a dictionary")
             else:
                 return data
         except Exception as e:
             cls.get_logger().error(f"Error preparing request data: {str(e)}")
             raise
-
-
-
-

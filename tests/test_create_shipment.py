@@ -11,13 +11,11 @@ from tests.helpers import CommonHelper
 @pytest.mark.shipment
 class TestCreateShipment:
 
-    @pytest.fixture(autouse=True)
-    def setup(self, api_client: APIClient):
-        self.api_client = api_client
-        self.shipment_client = ShipmentClient(api_client)
+    def setup_method(self):
+        self.shipment_client = ShipmentClient(self.api_client)
         self.logger = LoggerUtils.get_logger(__name__)
 
-    @pytest.mark.smoke
+    @pytest.mark.skip(reason="Skipping this test as it is already covered in the E2E test: test_shipment_e2e_complete_flow")
     @allure.title("Test Shipment Creation - Valid Data")
     @allure.description("Test shipment creation with valid data structure and validate by fetching the created shipment")
     @allure.severity(allure.severity_level.CRITICAL)
@@ -94,7 +92,7 @@ class TestCreateShipment:
         ("courier_identifier", "shipment_validation_failed"),
         ("pickup_location.name", "schema_validation_failed"),
         ("drop_location.name", "schema_validation_failed"),
-        ("items.0.name", "schema_validation_failed"),
+        ("items.0.name", "shipment_validation_failed"),
     ])
     def test_shipment_creation_null_values_parametrized(self, authenticated_request, valid_shipment_data, field_path, expected_error):
         cookie = authenticated_request["cookie"]

@@ -54,17 +54,6 @@ class APIClient:
     def logger(self):
         return LoggerUtils.get_logger(__name__)
 
-    def get(self, endpoint: str, path_params: Dict[str, str] = None, 
-            query_params: Dict[str, Any] = None, headers: Dict[str, str] = None,
-            cookie: str = None) -> requests.Response:
-        return self._make_request(
-            method="GET",
-            endpoint=endpoint,
-            path_params=path_params,
-            query_params=query_params,
-            headers=headers,
-            cookie=cookie
-        )
 
     def post(self, endpoint: str, data: Union[Dict[str, Any], List[Dict[str, Any]]] = None,
              path_params: Dict[str, str] = None, query_params: Dict[str, Any] = None,
@@ -81,20 +70,6 @@ class APIClient:
             content_type=content_type
         )
 
-    def patch(self, endpoint: str, data: Union[Dict[str, Any], List[Dict[str, Any]]] = None,
-              path_params: Dict[str, str] = None, query_params: Dict[str, Any] = None,
-              headers: Dict[str, str] = None, cookie: str = None,
-              content_type: str = DEFAULT_CONTENT_TYPE) -> requests.Response:
-        return self._make_request(
-            method="PATCH",
-            endpoint=endpoint,
-            data=data,
-            path_params=path_params,
-            query_params=query_params,
-            headers=headers,
-            cookie=cookie,
-            content_type=content_type
-        )
 
     def put(self, endpoint: str, data: Union[Dict[str, Any], List[Dict[str, Any]]] = None,
             path_params: Dict[str, str] = None, query_params: Dict[str, Any] = None,
@@ -111,17 +86,6 @@ class APIClient:
             content_type=content_type
         )
 
-    def delete(self, endpoint: str, path_params: Dict[str, str] = None,
-               query_params: Dict[str, Any] = None, headers: Dict[str, str] = None,
-               cookie: str = None) -> requests.Response:
-        return self._make_request(
-            method="DELETE",
-            endpoint=endpoint,
-            path_params=path_params,
-            query_params=query_params,
-            headers=headers,
-            cookie=cookie
-        )
 
     def _make_request(self, method: str, endpoint: str, 
                      data: Union[Dict[str, Any], List[Dict[str, Any]]] = None,

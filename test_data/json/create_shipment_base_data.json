@@ -2,7 +2,7 @@
   "data": [
       {
           "courier_identifier": "self",
-          "dispatch_strategy": "manual",
+          "dispatch_strategy": "auto",
           "description": "babua",
           "items": [
               {
@@ -33,7 +33,7 @@
               "address_line_1": "No. A3&B2, B Cross Road Marol Industrial Area, ",
               "address_line_2": "MIDC,Andheri (East)",
               "additional_details": "Drop at reception",
-              "hub_name": "",
+              "hub_name": "hera",
               "pincode": 400001,
               "area": "Marol",
               "city": "Mumbai",
@@ -43,6 +43,10 @@
               "state": "Maharashtra",
               "country": "INDIA",
               "location_type": "office",
+              "otp_required": true,
+              "image_required": true,
+              "notes_required": true,
+              "signature_required": true,
               "contact_details": {
                   "contact_name": "Peter Parker",
                   "contact_phone": "9082618362",
@@ -66,6 +70,10 @@
               "state": "Maharashtra",
               "country": "India",
               "location_type": "office",
+              "otp_required": true,
+              "image_required": true,
+              "notes_required": true,
+              "signature_required": true,
               "contact_details": {
                   "contact_name": "Peter bhopalika",
                   "contact_phone": "7738108361",
@@ -97,7 +105,7 @@
       },
       {
           "courier_identifier": "self",
-          "dispatch_strategy": "manual",
+          "dispatch_strategy": "auto",
           "description": "rule_test",
           "items": [
               {
@@ -129,13 +137,17 @@
               "address_line_2": "MIDC,Andheri (East)",
               "additional_details": "Drop at reception",
               "pincode": 400001,
-              "hub_name": "",
+              "hub_name": "hera",
               "area": "Marol",
               "city": "Mumbai",
               "district": "Mumbai suburban",
               "state": "Maharashtra",
               "country": "INDIA",
               "location_type": "office",
+              "otp_required": true,
+              "image_required": true,
+              "notes_required": true,
+              "signature_required": true,
               "contact_details": {
                   "contact_name": "peter",
                   "contact_phone": "9082618362",
@@ -159,6 +171,10 @@
               "location_type": "office",
               "complete_after": "2024-02-05T09:00:00+05:30",
               "complete_before": "2024-02-05T09:00:00+05:30",
+              "otp_required": true,
+              "image_required": true,
+              "notes_required": true,
+              "signature_required": true,
               "contact_details": {
                   "contact_name": "Bhopalika",
                   "contact_phone": "7738108361",

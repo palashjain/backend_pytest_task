@@ -107,6 +107,9 @@ pytest -m regression
 
 # Shipment tests
 pytest -m shipment
+
+# e2e tests
+pytest -m e2e
 ```
 
 ## 📊 Reporting

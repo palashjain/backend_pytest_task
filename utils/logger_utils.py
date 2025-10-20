@@ -1,7 +1,6 @@
 import logging
-import os
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict
 from datetime import datetime
 from config.configmanager import ConfigManager
 
@@ -35,94 +34,60 @@ class LoggerUtils:
     @classmethod
     def get_logger(cls, name: str = __name__) -> logging.Logger:
         if cls._logger is None:
-            cls._setup_logger(name)
+            cls._logger = cls._create_logger(name, cls._session_log_file, cls._config_manager.log_file, add_console=True)
         return cls._logger
 
     @classmethod
     def get_request_logger(cls, name: str = __name__) -> logging.Logger:
         if cls._request_logger is None:
-            cls._setup_request_logger(name)
+            cls._request_logger = cls._create_logger(f"{name}.requests", cls._session_request_log_file, "logs/api_requests.log")
         return cls._request_logger
 
     @classmethod
     def get_response_logger(cls, name: str = __name__) -> logging.Logger:
         if cls._response_logger is None:
-            cls._setup_response_logger(name)
+            cls._response_logger = cls._create_logger(f"{name}.responses", cls._session_response_log_file, "logs/api_responses.log")
         return cls._response_logger
 
     @classmethod
-    def _setup_logger(cls, name: str) -> None:
-        cls._logger = logging.getLogger(name)
-        cls._logger.setLevel(getattr(logging, cls._config_manager.log_level))
-
-        cls._logger.handlers.clear()
-
+    def _get_log_format(cls) -> str:
         try:
-            log_format = cls._config_manager.get("LOGGING", "log_format")
+            return cls._config_manager.get("LOGGING", "log_format")
         except Exception:
-            log_format = cls.DEFAULT_LOG_FORMAT
-        
-        formatter = logging.Formatter(log_format)
+            return cls.DEFAULT_LOG_FORMAT
 
-        log_file_path = cls._session_log_file if cls._session_log_file else cls._config_manager.log_file
-        log_file_path = Path(log_file_path)
-        log_file_path.parent.mkdir(parents=True, exist_ok=True)
+    @classmethod
+    def _create_file_handler(cls, log_file_path: str) -> logging.FileHandler:
+        log_path = Path(log_file_path)
+        log_path.parent.mkdir(parents=True, exist_ok=True)
         
-        file_handler = logging.FileHandler(log_file_path)
+        file_handler = logging.FileHandler(log_path)
         file_handler.setLevel(logging.DEBUG)
-        file_handler.setFormatter(formatter)
-        cls._logger.addHandler(file_handler)
+        file_handler.setFormatter(logging.Formatter(cls._get_log_format()))
+        
+        return file_handler
 
+    @classmethod
+    def _create_console_handler(cls) -> logging.StreamHandler:
         console_handler = logging.StreamHandler()
         console_handler.setLevel(logging.INFO)
-        console_handler.setFormatter(formatter)
-        cls._logger.addHandler(console_handler)
+        console_handler.setFormatter(logging.Formatter(cls._get_log_format()))
+        
+        return console_handler
 
     @classmethod
-    def _setup_request_logger(cls, name: str) -> None:
-        cls._request_logger = logging.getLogger(f"{name}.requests")
-        cls._request_logger.setLevel(logging.DEBUG)
+    def _create_logger(cls, name: str, session_file: Optional[str], default_file: str, add_console: bool = False) -> logging.Logger:
+        logger = logging.getLogger(name)
+        logger.setLevel(getattr(logging, cls._config_manager.log_level))
+        logger.handlers.clear()
 
-        cls._request_logger.handlers.clear()
+        log_file_path = session_file if session_file else default_file
+        logger.addHandler(cls._create_file_handler(log_file_path))
 
-        try:
-            log_format = cls._config_manager.get("LOGGING", "log_format")
-        except Exception:
-            log_format = cls.DEFAULT_LOG_FORMAT
-        
-        formatter = logging.Formatter(log_format)
+        if add_console:
+            logger.addHandler(cls._create_console_handler())
 
-        log_file_path = cls._session_request_log_file if cls._session_request_log_file else "logs/api_requests.log"
-        log_file_path = Path(log_file_path)
-        log_file_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        file_handler = logging.FileHandler(log_file_path)
-        file_handler.setLevel(logging.DEBUG)
-        file_handler.setFormatter(formatter)
-        cls._request_logger.addHandler(file_handler)
-
-    @classmethod
-    def _setup_response_logger(cls, name: str) -> None:
-        cls._response_logger = logging.getLogger(f"{name}.responses")
-        cls._response_logger.setLevel(logging.DEBUG)
-
-        cls._response_logger.handlers.clear()
-
-        try:
-            log_format = cls._config_manager.get("LOGGING", "log_format")
-        except Exception:
-            log_format = cls.DEFAULT_LOG_FORMAT
-        
-        formatter = logging.Formatter(log_format)
-
-        log_file_path = cls._session_response_log_file if cls._session_response_log_file else "logs/api_responses.log"
-        log_file_path = Path(log_file_path)
-        log_file_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        file_handler = logging.FileHandler(log_file_path)
-        file_handler.setLevel(logging.DEBUG)
-        file_handler.setFormatter(formatter)
-        cls._response_logger.addHandler(file_handler)
+        return logger
 
     @classmethod
     def log_test_start(cls, test_name: str) -> None:
