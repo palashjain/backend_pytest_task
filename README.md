@@ -8,38 +8,53 @@ API testing framework built with Python, pytest, requests and Allure reporting f
 ```
 backend_pytest_task/
 ├── config/
+│   ├── api_config.json            # APIs json
+│   ├── api_config_manager.py      # API configuration manager
 │   ├── config.ini                 # Configuration settings
-│   ├── configmanager.py          # Singleton config manager
-│   └── api_config_manager.py     # API configuration manager
+│   └── configmanager.py           # Singleton config manager
 ├── utils/
-│   ├── api_client.py             # HTTP client with retry logic and standardized responses
-│   ├── auth_client.py            # Authentication client
-│   ├── shipment_client.py        # Shipment API client
-│   ├── base_utils.py             # Base utility classes with common patterns
-│   ├── common_utils.py           # Common utility functions
-│   ├── file_utils.py             # File operations and CSV/JSON handling
+│   ├── api_client.py              # HTTP client with retry logic and standardized responses
+│   ├── auth_client.py             # Authentication client
+│   ├── base_utils.py              # Base utility classes with common patterns
+│   ├── common_utils.py            # Common utility functions
+│   ├── file_utils.py              # File operations and CSV/JSON handling
+│   ├── fixture_helpers.py         # Shared pytest fixture helpers
 │   ├── generic_contract_validator.py # JSON schema validation
-│   ├── logger_utils.py           # Centralized logging
-│   ├── request_utils.py          # Request building utilities
-│   └── response_utils.py         # Response parsing utilities
+│   ├── logger_utils.py            # Centralized logging
+│   ├── request_utils.py           # Request building utilities
+│   ├── response_utils.py          # Response parsing utilities
+│   ├── session_manager.py         # Requests session and auth token handling
+│   ├── shipment_client.py         # Shipment API client
+│   ├── task_client.py             # Task API client
+│   └── trip_client.py             # Trip API client
 ├── schemas/
+│   ├── __init__.py
 │   ├── create_shipment_schema.json # JSON schema for contract validation
-│   └── schema_loader.py          # Schema loading utilities
+│   └── schema_loader.py           # Schema loading utilities
 ├── test_data/
-│   ├── generic_data_manager.py   # Test data management and generation
-│   ├── csv/                      # CSV test data files
-│   └── json/                     # JSON test data files
+│   ├── generic_data_manager.py    # Test data management and generation
+│   ├── trip_task_data_factory.py  # Builders for trip/task payloads
+│   ├── csv/
+│   │   └── validation_test_data.csv
+│   └── json/
+│       └── create_shipment_base_data.json
 ├── tests/
 │   ├── helpers/
-│   │   ├── common_helper.py      # Common test helper functions
-│   │   └── create_shipment_helper.py # Shipment-specific helpers
-│   └── test_create_shipment.py # Comprehensive parameterized tests
-├── logs/                         # Log files
-├── allure-results/              # Allure results
-├── conftest.py                  # Pytest fixtures and configuration
-├── pytest.ini                  # Pytest configuration
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
+│   │   ├── auth_helper.py         # Auth token and login helpers
+│   │   ├── common_helper.py       # Common test helper functions
+│   │   ├── shipment_helper.py     # Shipment-specific helpers
+│   │   ├── task_helper.py         # Task-specific helpers
+│   │   └── trip_helper.py         # Trip-specific helpers
+│   ├── test_create_shipment.py    # Parameterized shipment tests
+│   └── test_shipment_e2e.py       # End-to-end shipment flow
+├── allure-results/                # Allure raw results
+├── logs/                          # Execution and API logs
+├── conftest.py                    # Pytest fixtures and configuration
+├── pytest.ini                     # Pytest configuration
+├── requirements.txt               # Python dependencies
+├── README.md                      # Project documentation
+├── Report_screenshot_suite.png
+├── Report_screenshot_test.png
 ```
 
 ## 🛠️ Setup and Installation
